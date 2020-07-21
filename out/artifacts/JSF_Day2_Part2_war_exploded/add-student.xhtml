@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Form Student</title>
+</h:head>
+<h:body>
+    <h1 style="text-align: center">Create Student</h1>
+    <br/>
+    <h:form>
+        <h:commandButton value="List Student" action="list-student?faces-redirect=true"/>
+    </h:form>
+    <h:form>
+        <div>
+            <h:outputLabel value="Roll number: "/>
+            <h:inputText value="#{studentBean.student.rollNumber}"/>
+        </div>
+
+        <div>
+            <h:outputLabel value="Firstname: "/>
+            <h:inputText value="#{studentBean.student.firstName}"/>
+        </div>
+        <div>
+            <h:outputLabel value="Lastname: "/>
+            <h:inputText value="#{studentBean.student.lastName}"/>
+        </div>
+        <div>
+            <h:outputLabel value="Gender: "/>
+            <h:selectOneRadio value="#{studentBean.student.gender}">
+                <f:selectItem itemValue="1" itemLabel="male"/>
+                <f:selectItem itemValue="0" itemLabel="female"/>
+                <f:selectItem itemValue="2" itemLabel="other"/>
+            </h:selectOneRadio>
+        </div>
+
+        <div>
+            <h:outputLabel value="Favourites: "/>
+            <h:selectManyCheckbox value="#{studentBean.favourites}">
+                <f:selectItem itemValue="Design" itemLabel="Design"/>
+                <f:selectItem itemValue="Coding" itemLabel="Coding"/>
+                <f:selectItem itemValue="Music" itemLabel="Music"/>
+                <f:selectItem itemValue="Food" itemLabel="Food"/>
+                <f:selectItem itemValue="Sport" itemLabel="Sport"/>
+            </h:selectManyCheckbox>
+        </div>
+        <div>
+            <h:outputLabel value="Sporst: "/>
+            <h:selectManyCheckbox value="#{studentBean.sports}">
+                <f:selectItem itemValue="football" itemLabel="football"/>
+                <f:selectItem itemValue="basketball" itemLabel="basketball"/>
+                <f:selectItem itemValue="volleyball" itemLabel="volleyball"/>
+                <f:selectItem itemValue="swimming" itemLabel="swimming"/>
+            </h:selectManyCheckbox>
+        </div>
+        <div>
+            <h:outputLabel value="Address: "/>
+            <h:inputText value="#{studentBean.student.address}"/>
+        </div>
+        <div>
+            <h:outputLabel value="City: "/>
+            <h:selectOneMenu value="#{studentBean.student.city}">
+                <f:selectItem itemValue="Ha Noi" itemLabel="Ha Noi"/>
+                <f:selectItem itemValue="Ho Chi Minh" itemLabel="Ho Chi Minh"/>
+                <f:selectItem itemValue="Hai Phong" itemLabel="Hai Phong"/>
+                <f:selectItem itemValue="Hoa Binh" itemLabel="Hoa Binh"/>
+            </h:selectOneMenu>
+        </div>
+
+        <div>
+            <h:outputLabel value="Status: "/>
+            <h:selectOneMenu value="#{studentBean.student.status}">
+                <f:selectItem itemValue="1" itemLabel="Active"/>
+                <f:selectItem itemValue="0" itemLabel="Deactivated"/>
+            </h:selectOneMenu>
+        </div>
+
+        <div>
+            <h:commandButton value="Submit" action="#{studentBean.saveStudent()}"/>
+        </div>
+    </h:form>
+</h:body>
+</html>
